@@ -1,6 +1,10 @@
+const fs = require("fs")
+const { getTodosLivros } = require("./services/livros")
+
 function getLivros(req, res) {
     try {
-        res.send("Você fez uma requisição do tipo GET")
+        const dados = getTodosLivros()
+        res.send(dados)
     } catch (error) {
         res.status(500)
         res.send(error.message)
